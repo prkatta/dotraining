@@ -1,0 +1,56 @@
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+domain = 'cloudbearers.com'
+box = 'bento/ubuntu-18.04'
+
+
+puppet_nodes = [
+    {:hostname => 'jenkins-master',  :ip => '172.16.32.11', :ram => 2048, :master=>true},
+    {:hostname => 'agent-1',  :ip => '172.16.32.22', :ram => 1024, :master=>false},
+    {:hostname => 'sonarqube',  :ip => '172.16.32.23', :ram => 2048, :master=>false},
+    {:hostname => 'artifactory',  :ip => '172.16.32.24', :ram => 2048, :master=>false},
+]
+
+
+Vagrant.configure("2") do |config|
+
+  puppet_nodes.each do |node|
+    config.vm.define node[:hostname] do |node_config|
+      node_config.vm.box = box
+      #node_config.vm.box_url = 'https://atlas.hashicorp.com/' + node_config.vm.box
+      node_config.vm.hostname = node[:hostname] + '.' + domain
+      node_config.vm.network :private_network, ip: node[:ip]
+
+      memory = node[:ram] ? node[:ram] : 512;
+      node_config.vm.provider :virtualbox do |vb|
+        vb.memory = memory
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.customize ["modifyvm", :id, "--groups", "/cloudbearers-puppet-devops"]
+        vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
+      end
+
+      node_config.vm.provision "file", source: "config", destination: "devops"
+      node_config.vm.provision "shell", path: "shell/default-provision.sh"
+      if node[:master]
+        print "Jenkins server machine is spininig \n"
+        node_config.vm.provision "shell", path: "shell/jenkins-bootstrap.sh"
+
+
+      else
+        print "Started building a client machine   \n"
+        node_config.vm.provision "shell", path: "shell/node-provision.sh"
+      end
+
+    config.vm.provision :hosts do |provisioner|
+      provisioner.add_host '172.16.32.10' , ['jenkins.cloudbearers.devops', 'jenkins-master']
+      provisioner.add_host '172.16.32.21' , ['agent-1.sandbox.com', 'agent-1']
+
+    end
+     # end
+    end
+  end
+end

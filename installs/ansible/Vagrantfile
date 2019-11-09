@@ -1,0 +1,54 @@
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+domain = 'sarantek.com'
+box = 'centos/7'
+
+
+puppet_nodes = [
+    {:hostname => 'ansible',  :ip => '172.16.32.60', :ram => 2048, :master=>true},
+    {:hostname => 'east-node-1',  :ip => '172.16.32.61', :ram => 1024, :master=>false},
+    {:hostname => 'west-node-1',  :ip => '172.16.32.62', :ram => 1024, :master=>false},
+    {:hostname => 'west-node-2',  :ip => '172.16.32.63', :ram => 1024, :master=>false},
+]
+
+
+Vagrant.configure("2") do |config|
+
+  puppet_nodes.each do |node|
+    config.vm.define node[:hostname] do |node_config|
+      node_config.vm.box = box
+      #node_config.vm.box_url = 'https://atlas.hashicorp.com/' + node_config.vm.box
+      node_config.vm.hostname = node[:hostname] + '.' + domain
+      node_config.vm.network :private_network, ip: node[:ip]
+
+      memory = node[:ram] ? node[:ram] : 512;
+      node_config.vm.provider :virtualbox do |vb|
+        vb.memory = memory
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.customize ["modifyvm", :id, "--groups", "/sarantek-devops"]
+        vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
+      end
+
+      node_config.vm.provision "file", source: "config", destination: "devops"
+      node_config.vm.provision "shell", path: "shell/default-provision.sh"
+      if node[:master]
+        print "Ansible controller machine is bootstrapping \n"
+        node_config.vm.provision "shell", path: "shell/ansible-bootstrap.sh"
+
+      end
+
+    config.vm.provision :hosts do |provisioner|
+      provisioner.add_host '172.16.32.60' , ['ansible.sarantek.com', 'ansible']
+      provisioner.add_host '172.16.32.61' , ['east-node-1.sarantek.com', 'east-node-1']
+      provisioner.add_host '172.16.32.62' , ['west-node-1.sarantek.com', 'west-node-1']
+      provisioner.add_host '172.16.32.63' , ['west-node-2.sarantek.com', 'west-node-2']
+
+    end
+     # end
+    end
+  end
+end

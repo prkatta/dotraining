@@ -1,0 +1,41 @@
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+domain = 'cloudbearers.com'
+box = 'centos/7'
+
+
+puppet_nodes = [
+    {:hostname => 'docker-notary',  :ip => '172.16.42.80', :ram => 1024, :master=>true},
+]
+
+
+Vagrant.configure("2") do |config|
+
+  puppet_nodes.each do |node|
+    config.vm.define node[:hostname] do |node_config|
+      node_config.vm.box = box
+      #node_config.vm.box_url = 'https://atlas.hashicorp.com/' + node_config.vm.box
+      node_config.vm.hostname = node[:hostname] + '.' + domain
+      node_config.vm.network :private_network, ip: node[:ip]
+
+      memory = node[:ram] ? node[:ram] : 512;
+      node_config.vm.provider :virtualbox do |vb|
+        vb.memory = memory
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.customize ["modifyvm", :id, "--groups", "/cloudbearers-puppet-devops"]
+        vb.customize ["guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000]
+      end
+
+      #node_config.vm.provision "file", source: "config", destination: "devops"
+      node_config.vm.provision "shell", path: "shell/node-provision.sh"
+
+
+  
+     # end
+    end
+  end
+end

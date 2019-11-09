@@ -1,0 +1,7 @@
+[web]
+east-node-1 ansible_ssh_host=172.16.32.61
+[backend]
+west-node-1.cloudbearers.com ansible_ssh_host=172.16.32.62
+west-node-2.cloudbearers.com ansible_ssh_host=172.16.32.63
+[appserver1]
+east-node-1 ansible_ssh_host=172.16.32.61

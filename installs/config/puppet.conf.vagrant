@@ -1,0 +1,14 @@
+[main]
+
+logdir = /var/log/puppet
+rundir = /var/run/puppet
+ssldir = $vardir/ssl
+ca_server = puppet.cloudbearers.devops
+
+[agent]
+
+classfile = $vardir/classes.txt
+localconfig = $vardir/localconfig
+
+server = puppet.cloudbearers.devops
+caserver = puppet.cloudbearers.devops
