@@ -1,0 +1,4 @@
+Install GIT Client for Windows from:  https://tortoisegit.org/
+Install GIT client for Mac OS from: 
+
+https://github.com/prkatta/dotraining.git

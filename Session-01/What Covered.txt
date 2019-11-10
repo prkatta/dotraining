@@ -1,0 +1,14 @@
+Total: 4 Hours
+
+Fundamentals of Agile / DevOps
+
+Agile Overview
+ - Waterfall SDLC
+ - Agile Project Management
+
+DevOps Overview
+ - DevOps concepts
+ - DevOps tools
+
+Hands On:
+- Sample Projects and DevOps Use cases
