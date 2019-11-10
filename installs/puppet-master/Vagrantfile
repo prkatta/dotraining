@@ -4,20 +4,18 @@
 
 
 domain = 'cloudbearers.com'
-box = 'bento/ubuntu-18.04'
+box = 'centos/7'
 
 
-jenkins_nodes = [
-    {:hostname => 'jenkins-master',  :ip => '172.16.32.11', :ram => 2048, :master=>true},
-    {:hostname => 'agent-1',  :ip => '172.16.32.22', :ram => 1024, :master=>false},
-    {:hostname => 'agent-2',  :ip => '172.16.32.23', :ram => 1024, :master=>false},
-    {:hostname => 'agent-3',  :ip => '172.16.32.24', :ram => 1024, :master=>false},
+puppet_nodes = [
+    {:hostname => 'foreman',  :ip => '172.16.40.11', :ram => 2048, :master=>true},
+    {:hostname => 'agent-1',  :ip => '172.16.40.12', :ram => 1024, :master=>false},
 ]
 
 
 Vagrant.configure("2") do |config|
 
-  jenkins_nodes.each do |node|
+  puppet_nodes.each do |node|
     config.vm.define node[:hostname] do |node_config|
       node_config.vm.box = box
       #node_config.vm.box_url = 'https://atlas.hashicorp.com/' + node_config.vm.box
@@ -36,8 +34,8 @@ Vagrant.configure("2") do |config|
       node_config.vm.provision "file", source: "config", destination: "devops"
       node_config.vm.provision "shell", path: "shell/default-provision.sh"
       if node[:master]
-        print "Jenkins server machine is spininig \n"
-        node_config.vm.provision "shell", path: "shell/jenkins-bootstrap.sh"
+        print "Puppet and foreman server machine is spininig \n"
+        node_config.vm.provision "shell", path: "shell/puppet-bootstrap.sh"
 
 
       else
@@ -46,10 +44,8 @@ Vagrant.configure("2") do |config|
       end
 
     config.vm.provision :hosts do |provisioner|
-      provisioner.add_host '172.16.32.10' , ['jenkins', 'jenkins-master.cloudbearers.com']
-      provisioner.add_host '172.16.32.21' , ['agent-1', 'agent-1.cloudbearers.com']
-      provisioner.add_host '172.16.32.21' , ['agent-2', 'agent-2.cloudbearers.com']
-      provisioner.add_host '172.16.32.21' , ['agent-3', 'agent-3.cloudbearers.com']
+      provisioner.add_host '172.16.40.11' , ['foreman.cloudbearers.com', 'puppet']
+      provisioner.add_host '172.16.40.12' , ['agent-1.cloudbearers.com', 'agent-1']
 
     end
      # end
