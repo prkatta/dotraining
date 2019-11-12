@@ -1,0 +1,9 @@
+Total: 1 Hours
+
+Windows
+- Intro to Windows
+- Service Management in Windows
+
+Hands On
+- Windows commands
+- Service creation with stop and start
