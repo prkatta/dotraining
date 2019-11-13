@@ -1,0 +1,1 @@
+sc.exe create "<firstname-service>" start= auto binPath= "<path to jenkins-slave.exe>" DisplayName= "<firstname-service>"

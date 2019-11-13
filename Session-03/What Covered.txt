@@ -1,0 +1,11 @@
+Total: 1 Hours
+
+Linux
+- Intro to Linux
+- Linux Basic Commands
+- Networking in Linux
+- NFS / File Storage / Process Management in Linux
+
+Hands On:
+- Virtual box setup, Linux installation
+- Linux commands practice
