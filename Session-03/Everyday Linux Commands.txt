@@ -1,0 +1,39 @@
+
+In order to execute these commands, please refer to the commmand guide "Linux-Commands.pdf"
+
+
+ls 	(for listing directories)
+
+history (List history of commands)
+
+mkdir 	(Create directory)
+
+rmdir 	(Remove directory)
+
+chmod 	(change mode of afile/folder)
+
+chown 	(change owner  of a file/folder)
+
+chgrp 	(change group of a file/folder)
+
+touch 	(create a new file)
+
+cat 	(type a file)
+
+tar 	(Create zip archives)
+
+cp 	(Copy files)
+
+mv 	(Moving files)
+
+pwd	(List present working directory / where i am)
+
+whoami	(what is my user name)
+
+cd	(Chagne directory to my home or psecific folder)
+
+
+
+Also try 	--> https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/
+
+		--> https://www.thegeekstuff.com/2010/11/50-linux-commands/?utm_source=feedburner
