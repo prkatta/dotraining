@@ -32,6 +32,18 @@ whoami	(what is my user name)
 
 cd	(Chagne directory to my home or psecific folder)
 
+ps	(List running processes)
+
+df	(Free disk)
+
+du	(disk usage)
+
+mem	(memory usage)
+
+grep	(Grep text from files)
+
+find	(find files)
+
 
 
 Also try 	--> https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/
