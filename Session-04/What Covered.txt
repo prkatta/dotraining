@@ -1,0 +1,9 @@
+Total: 3 Hours
+
+Source Code Management Systems
+ - Git / Git Hub
+ - Subversion
+
+Hands On:
+ - GIT Installation, Version Control, Working with remote repository
+ - Branching and merging, Stashing, rebasing, reverting and resetting
