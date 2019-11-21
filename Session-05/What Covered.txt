@@ -1,0 +1,5 @@
+Total: 1 Hours
+
+ - CI introduction
+ - Jenkins install
+ - Jenkins overview
