@@ -1,0 +1,16 @@
+Total: 1 Hours
+
+*** Anything pending from following along with CI practice ***
+
+Continuous Integration
+- Jenkins / CI pipelines
+- Build tools with Maven / Gradle
+- Code quality with SonarQube
+- Library management with Artifactory & Nexus
+- Opensource Scanning with Blackduck / Snyk
+
+Hands On:
+- Jenkins installation, use console, master slave setup, build pipeline setup and configure security
+- Sonar Installation, understand code quality metrics
+- Artifactory installation, use library management
+- Snyk installation, use open source checks

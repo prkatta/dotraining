@@ -1,0 +1,40 @@
+PLAIN
+K 10
+svn:ignore
+V 47
+target
+.project
+.classpath
+.settings
+.DS_Store
+
+END
+ENDREP
+id: 0-1.0.r6/86
+type: dir
+pred: 0-1.0.r5/76
+count: 5
+text: 4 69 96 96 652f02896c4a9a717a103258df31d8f8
+props: 6 0 73 0 6fca2544c4dc87227722196b11878303
+cpath: /babble
+copyroot: 0 /
+
+PLAIN
+K 6
+babble
+V 15
+dir 0-1.0.r6/86
+END
+ENDREP
+id: 0.0.r6/317
+type: dir
+pred: 0.0.r5/308
+count: 6
+text: 6 268 36 36 6b8688c9ad8a4111d59047008a4b938e
+cpath: /
+copyroot: 0 /
+
+0-1.0.t5-5 modify-dir false true /babble
+
+
+317 443

@@ -1,0 +1,19 @@
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+INFO main com.sonatype.training.babble.domain.Babbler - Attempt to create a babbler with an empty name
+INFO main com.sonatype.training.babble.domain.Babbler - Attempt to create a babbler with an empty name
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: jake
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Babble uttered for joe :Yo!
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Babble uttered for joe :Yo!
+DEBUG main com.sonatype.training.babble.domain.Babbler - Babble uttered for joe :Dude!
+DEBUG main com.sonatype.training.babble.domain.Babbler - Creating new babbler: joe
+DEBUG main com.sonatype.training.babble.domain.Babbler - Babble uttered for joe :Yo!
+DEBUG main com.sonatype.training.babble.domain.Babbler - Babble uttered for joe :Dude!

@@ -1,0 +1,48 @@
+id: 1-4.0.r4/0
+type: dir
+count: 0
+cpath: /babble/tags
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 14
+dir 1-3.0.r3/0
+K 4
+tags
+V 14
+dir 1-4.0.r4/0
+K 5
+trunk
+V 14
+dir 1-2.0.r2/0
+END
+ENDREP
+id: 0-1.0.r4/178
+type: dir
+pred: 0-1.0.r3/153
+count: 3
+text: 4 69 96 96 652f02896c4a9a717a103258df31d8f8
+cpath: /babble
+copyroot: 0 /
+
+PLAIN
+K 6
+babble
+V 16
+dir 0-1.0.r4/178
+END
+ENDREP
+id: 0.0.r4/363
+type: dir
+pred: 0.0.r3/338
+count: 4
+text: 4 313 37 37 bc53a0285392a36c80b37296d9932ddf
+cpath: /
+copyroot: 0 /
+
+_1.0.t3-3 add-dir false false /babble/tags
+
+
+363 489

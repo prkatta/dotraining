@@ -1,0 +1,93 @@
+PLAIN
+K 10
+.classpath
+V 20
+file 1f-7.0.r7/20516
+K 7
+pom.xml
+V 20
+file 2k-7.0.r7/25231
+K 3
+src
+V 19
+dir 1k-7.0.r7/25083
+END
+ENDREP
+id: 1e-7.0.r13/130
+type: dir
+pred: 1e-7.0.r11/169
+count: 2
+text: 13 0 117 117 dfccb210ee61003e9aafa2f834f6bc46
+cpath: /babble/trunk/babble-services
+copyroot: 0 /
+
+PLAIN
+K 11
+babble-core
+V 18
+dir 2w-7.0.r12/130
+K 15
+babble-services
+V 18
+dir 1e-7.0.r13/130
+K 10
+babble-web
+V 17
+dir 2-7.0.r10/165
+K 7
+pom.xml
+V 20
+file 2u-7.0.r7/26871
+END
+ENDREP
+id: 1-2.0.r13/473
+type: dir
+pred: 1-2.0.r12/468
+count: 7
+text: 13 293 167 167 402b1fc99104814c786fa6fa2950e73f
+cpath: /babble/trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 14
+dir 1-3.0.r3/0
+K 4
+tags
+V 14
+dir 1-4.0.r4/0
+K 5
+trunk
+V 17
+dir 1-2.0.r13/473
+END
+ENDREP
+id: 0-1.0.r13/732
+type: dir
+pred: 0-1.0.r12/727
+count: 12
+text: 13 620 99 99 fa312dc706f38916ed7ad4b1ed36c3b1
+props: 6 0 73 0 6fca2544c4dc87227722196b11878303
+cpath: /babble
+copyroot: 0 /
+
+PLAIN
+K 6
+babble
+V 17
+dir 0-1.0.r13/732
+END
+ENDREP
+id: 0.0.r13/972
+type: dir
+pred: 0.0.r12/967
+count: 13
+text: 13 921 38 38 af51193bc22d88bcbb086f10f72db659
+cpath: /
+copyroot: 0 /
+
+2m-7.0.r7/26361 delete-dir false false /babble/trunk/babble-services/.settings
+
+
+972 1102

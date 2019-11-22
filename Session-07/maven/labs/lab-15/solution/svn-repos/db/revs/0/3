@@ -1,0 +1,44 @@
+id: 1-3.0.r3/0
+type: dir
+count: 0
+cpath: /babble/branches
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 14
+dir 1-3.0.r3/0
+K 5
+trunk
+V 14
+dir 1-2.0.r2/0
+END
+ENDREP
+id: 0-1.0.r3/153
+type: dir
+pred: 0-1.0.r2/117
+count: 2
+text: 3 73 67 67 cf9d3064f30171f9b3eaebb06808765a
+cpath: /babble
+copyroot: 0 /
+
+PLAIN
+K 6
+babble
+V 16
+dir 0-1.0.r3/153
+END
+ENDREP
+id: 0.0.r3/338
+type: dir
+pred: 0.0.r2/300
+count: 3
+text: 3 288 37 37 64318f188de0b43e0093b380970593ae
+cpath: /
+copyroot: 0 /
+
+_1.0.t2-2 add-dir false false /babble/branches
+
+
+338 464

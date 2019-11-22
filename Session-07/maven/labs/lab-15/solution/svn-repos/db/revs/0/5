@@ -1,0 +1,39 @@
+PLAIN
+K 10
+svn:ignore
+V 37
+target
+.project
+.classpath
+.settings
+
+END
+ENDREP
+id: 0-1.0.r5/76
+type: dir
+pred: 0-1.0.r4/178
+count: 4
+text: 4 69 96 96 652f02896c4a9a717a103258df31d8f8
+props: 5 0 63 0 0edce7257df4001547ee3e4ed6dab541
+cpath: /babble
+copyroot: 0 /
+
+PLAIN
+K 6
+babble
+V 15
+dir 0-1.0.r5/76
+END
+ENDREP
+id: 0.0.r5/308
+type: dir
+pred: 0.0.r4/363
+count: 5
+text: 5 259 36 36 1a2e327de77305568497e7208db3fe04
+cpath: /
+copyroot: 0 /
+
+0-1.0.t4-4 modify-dir false true /babble
+
+
+308 434
