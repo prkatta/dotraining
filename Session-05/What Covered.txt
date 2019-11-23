@@ -3,3 +3,10 @@ Total: 1 Hours
  - CI introduction
  - Jenkins install
  - Jenkins overview
+
+CI definition 
+Jenkins as a CI , features & benifits
+install, important components 
+master and slave setup 
+execute a shell from jenkins 
+and how to's for Jenkins CI
