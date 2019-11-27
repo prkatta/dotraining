@@ -1,0 +1,21 @@
+#Run below commands one by one for installing Artifactory
+
+sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+sudo apt update && sudo apt -y install docker-ce
+
+sudo usermod -aG docker $USER
+
+docker pull docker.bintray.io/jfrog/artifactory-oss:latest
+
+docker pull docker.bintray.io/jfrog/artifactory-cpp-ce
+
+sudo mkdir -p /jfrog/artifactory
+
+sudo chown -R 1030 /jfrog/
+
+docker run --name artifactory -d -p 8081:8081 -v /jfrog/artifactory:/var/opt/jfrog/artifactory docker.bintray.io/jfrog/artifactory-oss:latest
