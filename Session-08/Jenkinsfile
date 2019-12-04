@@ -1,0 +1,54 @@
+node {
+   def mvnHome
+   stage('Checkout') { // for display purposes
+      // Get some code from a GitHub repository
+      git 'https://github.com/prkatta/dotraining.git'
+      // Get the Maven tool.
+      // ** NOTE: This 'M3' Maven tool must be configured
+      // **       in the global configuration.           
+      mvnHome = '/usr/share/maven'
+   }
+   stage('Build') {
+      // Run the maven build
+      withEnv(["MVN_HOME=$mvnHome"]) {
+         if (isUnix()) {
+            sh 'cd $WORKSPACE/Session-07/maven/Project/single-module && "$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
+         } else {
+            bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+         }
+      }
+   }
+   stage('Archive artifacts') {
+      archiveArtifacts 'Session-07/maven/Project/single-module/target/*.jar'
+   }
+   
+     stage('Artifactory Upload') {
+      withEnv(["MVN_HOME=$mvnHome"]) {
+         if (isUnix()) {
+            sh 'cd $WORKSPACE/Session-07/maven/Project/single-module && "$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean deploy'
+         } else {
+            bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+         }
+      }
+   }
+   
+        stage('Shell execution') {
+      withEnv(["MVN_HOME=$mvnHome"]) {
+         if (isUnix()) {
+            sh 'echo "Shell execution"'
+         } else {
+            bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+         }
+      }
+   }
+      stage('Sonar Scan') {
+      // Run the maven build
+      withEnv(["MVN_HOME=$mvnHome"]) {
+         if (isUnix()) {
+            sh 'cd $WORKSPACE/Session-07/maven/Project/single-module && "$MVN_HOME/bin/mvn" clean verify sonar:sonar'
+         } else {
+            bat(/"%MVN_HOME%\bin\mvn" clean verify sonar:sonar/)
+         }
+      }
+   }
+}
