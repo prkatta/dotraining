@@ -1,0 +1,4 @@
+Total: 1 Hours
+
+*** Monitoring importance & principles
+*** Nagios tool intro 
