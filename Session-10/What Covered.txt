@@ -1,0 +1,10 @@
+Total: 1 Hours
+
+Logging, Tollgates & Monitoring
+- Log monitoring in Jenkins, Tomcat etc.
+- Introduction to tollgates & Tollgates with Jenkins
+- Monitoring & Telemetry with Ngios, Elk etc.
+
+Hands On:
+- Nagios installation, monitor with Nagios
+- Tollgate implementation in Jenkins pipelines

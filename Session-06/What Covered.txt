@@ -2,3 +2,4 @@ Total: 1 Hours
 
 - Continue installations of tools (Refer to installs/DevopsRequiredSoftware.pdf)
 - Highlevel review what is discussed so far
+- Nexus / Artifactory Review

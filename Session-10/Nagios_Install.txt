@@ -1,0 +1,123 @@
+Install instructions
+
+https://tecadmin.net/install-nagios-monitoring-server-on-ubuntu/
+
+
+Steps :
+
+Step 1 – Prerequisite
+
+We assume that you have fresh installed Ubuntu/Debian systems, So our first requirement is to install Apache and PHP first. Use the following commands to complete it. You can find detailed LAMP setup instruction here.
+
+Let’s use the following commands to install required packages for Nagios.
+
+sudo apt-get update
+sudo apt-get install wget build-essential unzip openssl libssl-dev
+sudo apt-get install apache2 php libapache2-mod-php php-gd libgd-dev 
+
+Step 2 – Create Nagios User
+First of all, create a new user account for Nagios in your system and assign a password.
+
+sudo adduser nagios
+Now create a group for Nagios setup “nagcmd” and add nagios user to this group. Also, add nagios user in the Apache group.
+
+sudo groupadd nagcmd
+sudo usermod -a -G nagcmd nagios
+sudo usermod -a -G nagcmd www-data
+
+Step 3 – Install Nagios Core Service
+Now, start with Nagios core installation. Download the latest Nagios core service from the official site.
+
+cd /opt/
+wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.5.tar.gz
+tar xzf nagios-4.4.5.tar.gz
+After extracting naviate to nagios source directory and install using make command.
+
+cd nagios-4.4.5
+sudo ./configure --with-command-group=nagcmd
+sudo make all
+sudo make install
+sudo make install-init
+sudo make install-daemoninit
+sudo make install-config
+sudo make install-commandmode
+sudo make install-exfoliation
+Now copy event handlers scripts under libexec directory. These binaries provides multiple events triggers for your Nagios web interface.
+
+cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
+chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
+
+Step 4 – Setup Apache with Authentication
+Now create an Apache configuration file for your Nagios server as below:
+
+sudo vi /etc/apache2/conf-available/nagios.conf
+/etc/apache2/conf-available/nagios.conf
+ScriptAlias /nagios/cgi-bin "/usr/local/nagios/sbin"
+
+<Directory "/usr/local/nagios/sbin">
+   Options ExecCGI
+   AllowOverride None
+   Order allow,deny
+   Allow from all
+   AuthName "Restricted Area"
+   AuthType Basic
+   AuthUserFile /usr/local/nagios/etc/htpasswd.users
+   Require valid-user
+</Directory>
+
+Alias /nagios "/usr/local/nagios/share"
+
+<Directory "/usr/local/nagios/share">
+   Options None
+   AllowOverride None
+   Order allow,deny
+   Allow from all
+   AuthName "Restricted Area"
+   AuthType Basic
+   AuthUserFile /usr/local/nagios/etc/htpasswd.users
+   Require valid-user
+</Directory>
+We need to setup apache authentication for user nagiosadmin. Until more specific reason use this username as “nagiosadmin” else you would require more changes in configuration.
+
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+Now enable Apache configuration and restart Apache service to make the new settings take effect.
+
+sudo a2enconf nagios
+sudo a2enmod cgi rewrite
+sudo service apache2 restart
+
+Step 5 – Installing Nagios Plugins
+After installing and configuring Nagios core service, Download latest nagios-plugins source and install using the following commands.
+
+cd /opt
+wget http://www.nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
+tar xzf nagios-plugins-2.2.1.tar.gz
+cd nagios-plugins-2.2.1
+Now compile and install Nagios plugins
+
+sudo ./configure --with-nagios-user=nagios --with-nagios-group=nagios --with-openssl
+sudo make
+sudo make install
+
+Step 6 – Verify Settings
+Use the Nagios commands to verify the Nagios installation and configuration file. After successfully verify start the Nagios core service.
+
+/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+service nagios start
+Also configure Nagios to auto start on system boot.
+
+sudo systemctl enable nagios
+Step 7 – Access Nagios Web Interface
+Access your nagios setup by access nagios server using hostname or ip address followed by /nagios.
+[change domain name with your domain or ip]
+
+ http://svr1.tecadmin.net/nagios/
+Prompting for Apache Authentication Password –
+
+Install Nagios 1
+
+Nagios After login screen –
+
+Install Nagios - Dashboard
+
+Finally, You have successfully installed and configured Nagios Monitoring Server core service in your system. Now visit net article to monitor Linux host and Windows host using Nagios server.
