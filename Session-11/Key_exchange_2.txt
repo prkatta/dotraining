@@ -1,0 +1,39 @@
+Follow below steps for the Key Exchange
+
+We currently have 2 ubuntu servers & we will use one as a controller node & other as a ansible host.
+
+We will need to create a user called as "ansible" on both hosts & setup key exchange between them.
+
+
+
+Run below commands on both the servers for creating the user
+
+adduser ansible
+
+You will be asked a few questions, starting with the account password.
+
+This is not required and you can just hit ENTER in any field you wish to skip.
+
+Granting admin privilege by entering below command
+
+usermod -aG sudo ansible
+
+
+Now we need to create an SSH key on the controller node & copy that onto the ansible host.
+
+Run below command on the controller node
+
+ssh-copy-id ansible@<ip address of ansible host>
+
+Authenticate to Ubuntu host Using SSH Keys. Run below command from controller node
+
+ssh ansible@<ip address of ansible host>
+
+If this is your first time connecting to this host (if you used the last method above), you may see something like this:
+
+Output
+The authenticity of host '203.0.113.1 (203.0.113.1)' can't be established.
+ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
+Are you sure you want to continue connecting (yes/no)? yes
+
+This means that your local computer does not recognize the remote host. Type “yes” and then press ENTER to continue.

@@ -1,8 +1,7 @@
-Total: 1 Hours
+Total: 3 Hours
 
-Review
-- Review what has been learned so far
-- Review Open Source Scans with Blackduck and Snyk
-
-Hands On:
-- CI / CD Practice with pipelines
+1) Ansible presentation
+2) Setup of 2 ubuntu servers
+3) Ansible Install
+4) Key exchange from Ansible control node to Ansible host.
+5) Ansible Hands-on using adhoc commands & playbooks.

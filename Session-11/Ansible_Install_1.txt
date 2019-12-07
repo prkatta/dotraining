@@ -1,0 +1,12 @@
+Steps to install Ansible
+
+Pre -req : Setup 2 ubuntu servers for this handson. Make sure to spin up a new ubuntu server with a new IP & a unique name.
+
+
+Install steps :
+
+sudo apt-add-repository ppa:ansible/ansible
+
+sudo apt update
+
+sudo apt install ansible
