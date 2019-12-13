@@ -1,0 +1,3 @@
+Please install Puppet and have the base module Hnadson ( that is listed as part of Puppet_Nutshell PPT)
+
+https://www.digitalocean.com/community/tutorials/how-to-install-puppet-4-on-ubuntu-16-04 

@@ -1,4 +1,0 @@
-Follow below url for installing CHEF server, nodes & workstation & create a cook book & running them on the client node.
-
-https://www.linode.com/docs/applications/configuration-management/install-a-chef-server-workstation-on-ubuntu-18-04/
-

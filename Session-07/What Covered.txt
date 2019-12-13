@@ -1,4 +1,4 @@
-Total: 3-4 Hours
+Total: 4 Hours
 
 Build Tools
 - Ant
