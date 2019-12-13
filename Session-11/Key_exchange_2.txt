@@ -21,6 +21,8 @@ usermod -aG sudo ansible
 
 Now we need to create an SSH key on the controller node & copy that onto the ansible host.
 
+ssh-keygen
+
 Run below command on the controller node
 
 ssh-copy-id ansible@<ip address of ansible host>

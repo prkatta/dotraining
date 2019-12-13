@@ -66,7 +66,8 @@ You can use the -u argument to specify the remote system user. When not provided
 
 From your local machine or Ansible control node, run:
 
-ansible all -m ping -u ansible
+
+
 This command will use Ansible’s built-in ping module to run a connectivity test on all nodes from your default inventory, connecting as root. The ping module will test:
 
 if hosts are accessible;
