@@ -1,0 +1,32 @@
+SYNK INSTALL CLI :
+
+
+1) synk.io to register first 
+
+2) https://app.snyk.io/org/parthme17/
+sudo apt-get install nodejs -y 
+
+
+
+2) https://app.snyk.io/account/  (for getting AUTH TOKEN)
+
+NodeJS & NPM sudo apt-get install nodejs -y sudo apt-get install npm -y 
+
+
+3) Install snyk tool
+
+npm install -g snyk
+
+4) Authenticate 
+
+snyk auth
+
+4) snyk monitor   (at project directory)
+
+https://snyk.io/docs/jenkins-integration-overview/
+
+https://app.snyk.io/org/parthme17/add/cli
+
+https://app.snyk.io/org/parthme17/project/b48ab270-ce0a-4a60-998c-531945037ff7/history/e822699f-9619-4874-af83-b300670d4fef
+https://app.snyk.io/org/parthme17/project/b48ab270-ce0a-4a60-998c-531945037ff7
+ 
