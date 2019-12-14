@@ -1,0 +1,13 @@
+We will use Katacoda for hands-on
+
+Open url https://www.katacoda.com/
+
+Run through below courses
+
+1) Launch Single Node Kubernetes Cluster
+
+2) Setup a kubernetes cluster with kubeadm
+
+3) Deploy a simple application
+
+4) Deploy Containers Using YAML

@@ -1,0 +1,11 @@
+Total: 4 Hours
+
+Quiz - 30 min
+
+Docker Session - 1 Hr
+
+Kubernetes ( K8s ) Session - 1 Hr
+
+Handson - 1 Hr 30 Min
+
+Create minikube on the ubuntu VM & perform a docker build & deploy onto minikube & run some K8s commands to interact with it.

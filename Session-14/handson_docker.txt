@@ -1,0 +1,13 @@
+We will use Katacoda for hands-on
+
+Open url https://www.katacoda.com/
+
+Run through below courses
+
+1) Install Docker
+
+2) Building images with Dockerfile
+
+3) Our first container
+
+4) Run a Webapp with Docker
