@@ -1,4 +1,4 @@
-We will use Katacoda for hands-on
+x	We will use Katacoda for hands-on
 
 Open url https://www.katacoda.com/
 
