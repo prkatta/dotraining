@@ -1,0 +1,140 @@
+STEPS FOR SPINNING OFF AN EC2 INSTANCE USING TERRAFORM:
+
+Installation: 
+
+cd ~/tools/
+
+Install terraform : wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip
+
+unzip terraform_0.12.18_linux_amd64.zip
+
+sudo mv terraform /usr/local/bin/
+
+which terraform
+
+terraform -v 
+
+STEP1: 
+
+Get the files from GitHub (https://github.com/prkatta/dotraining.git Session-15) : 
+and create below structure in Ubuntu Env. Launch the Virtual Box Ubuntu
+
+mkdir -p ~/terraform/1-ec2-instance 
+and create below 4 files. (content of the files can be get from above GIT )
+
+1-ec2-instance/
+    - providers.tf
+    - main.tf
+    - aws_ami.tf
+    - variables.tf
+	
+-----------------------------------------------------------------------------------------------------
+
+Explanation on each file details : 
+
+variables.tf
+Here is where we'll set some variables to be re-used by the rest of  the configuration. It will also serve as a handy place to keep our AWS  secrets.
+
+Variables can have a default value that will be used if  nothing is there to override them. In this case, we are utilizing  default values to create reusable variables that will be utilized  throughout the rest of our configuration files.
+
+Explanation of Variables
+aws_access_key - Access Key ID that allows your machine to make calls to the AWS API.
+
+aws_secret_key - Secret Access Key that pairs with that Access Key ID
+
+Note:
+You can find your Access Key and Secret Key by following the steps outlined here. 
+
+aws_region - The region in which our infrastructure is hosted (I'm using  us-west-2 but you can change it if you'd like)
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+providers.tf
+
+In Terraform, Providers are interfaces to the services that maintain our Resources. For example - An EC2 Instance is a Resource provided by the Amazon Web Services Provider. A Git Repository is a Resource provided by the Github Provider.
+
+Because Terraform is an open source tool, contributors can build  custom providers to accomplish different tasks. For now, we will focus  purely on the AWS provider and the resources it provides.
+
+More specifically, we will be using version 2.7 of  the AWS provider. This version will allow our configurations to work  similarly on your machine - Even if the provider is updated after this  chapter is written.
+
+The AWS Provider requires an access_key (identifying the user Terraform should use) and a secret_key (authenticating the user Terraform should use). There is also an aws_region that identifies which region of the world Terraform should instantiate this infrastructure in.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+aws_ami.tf
+
+This file is dedicated to finding the right Ubuntu AMI to install on  our server. AMI IDs change from region to region and change over time as  upgrades come out. We're going to create a data source to track down the right one.
+
+A data source is a read-only view into data stored  outside of Terraform. The data sources available will change based on  the provider. In this case, we are creating an aws_ami data source with the unique identifier of ubuntu.
+
+The owners of the AMI that we're looking for (the official Ubuntu AMI), will always be Amazon. Therefore, the ID stored in owners is a constant.
+
+We are using filter tags to filter all possible AMIs in the AMI repository by name and virtualization-type.
+
+Lastly, there will likely be multiple results when we apply all of these filters. most_recent  will select the most recent of the possible AMIs and return the  attributes of that for later use in our Terraform configuration.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+main.tf
+
+We are defining an aws_instance with the unique Terraform identifier of my-test-instance
+
+That instance should use the AMI found in aws_ami.tf to initialize the server
+
+That instance should be a t2.micro (the cheapest AWS instance type)
+
+We've attached a Name tag to the instance, test-instance, for easy identification
+
+This server won't do much - yet. As you'll notice, we haven't installed anything on it.
+
+We could theoretically do that through a manual process, after we create the server. But that's not in the spirit of Infrastructure as Code!
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Commands:
+
+1) terraform init
+
+This will download and install the proper version of the AWS provider for your project and place it in a directory called .terraform.
+
+You should see a message like this in response:
+
+Initializing provider plugins...
+- Checking for available provider plugins on https://releases.hashicorp.com...
+- Downloading plugin for provider "aws" (1.7.0)...
+
+Terraform has been successfully initialized!
+
+2) terraform apply
+
+We'll now run the command that will take the configurations we've  written and use the AWS API to build our servers. This command is one  that you'll be using throughout most of your time with Terraform:
+
+
+You should see a message like this in response:
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + aws_instance.my-test-instance
+      id:
+      ami:                          "ami-1ee65166"
+      associate_public_ip_address:
+      availability_zone:
+
+*****Congratulations! You've created your first piece of AWS infrastructure through Terraform. Welcome to the wonderful world of Infrastructure as Code! ***************
+
+3) terraform destroy
+
+aws_instance.my-test-instance: Refreshing state... (ID: i-0efdd3309c3a08f1e)
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  - destroy
+
+
+https://terraformbook.com/TheTerraformBook_sample.pdf

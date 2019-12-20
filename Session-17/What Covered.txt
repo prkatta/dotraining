@@ -1,0 +1,6 @@
+Total: 4 Hours
+
+1) AWS Session
+2) AWS Walkthrough
+3) Terraform Session
+4) Terraform Hands-on
