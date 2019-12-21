@@ -1,0 +1,255 @@
+Windows OS Questions 
+
+1) what is the command used to create a windows service ?
+a) sa create b) sb create c) sc create d) sd create 
+Answer : C
+
+2) what is a script extention in a windows OS ?
+a) .sh b) .dll c) .dat d) .bat
+Answer : D
+
+3) How to schedule a script in windows to run at particuloar time (name of wizard) ?
+a) time sscheduler b) event scheduler c) period scheduler d) cron 
+Answer : B
+
+4) what is the command to check the running process in a power shell ?
+a) call-process b) put-process c) get-process d) ask-process
+Answer : C
+
+5)  What is the windows equivalent to find a string ?
+a) lookstr b) getstr c) findstr d) allowstr
+Answer C) findstr
+
+---------------------------------------------------------------------------
+
+Linux OS questions 
+
+1) Command to search and find the matching sting or file 
+a) grep b) whoami c) uname d) print
+Answer : A
+
+2) long list the directories incuding the hidden ones 
+a) ls b) ls -lrt c) ls -lart d) la -ptra
+Answer B
+
+3) how to find the disk usage in a Linux OS 
+a) hu b) su c) du d) gu
+Answer C
+
+4) Inorder to load the environment variables when a user login , where should they need to be SET ?
+a) .systeminfo b) .pathinfo c) .editorinfo d) .profile
+Answer D
+
+5) Which of the following is NOT a (directory/file) permission set Linux OS ?
+a) Read b) write c) hidden d) Execute 
+Answer C
+--------------------------------------------------------------------------------------------
+
+SCM / GIT Questions :
+
+1) GIT commit pushes the changes to a remote repository ? is this true or false 
+Answer: False
+
+2) How to switch a branch in GIT 
+a) Git clone b) Git fetch c) Git stash d) Git Checkout 
+Answer D
+
+3) how can we revert a change in git ?
+a) Git undo b) Git rebase c) Git revert d) Git revision
+Answer C
+
+4) in GIT how can we temporarily save and hide local changes and later you can resume same work?
+a) Git sleeve b) Git stash c) Git hide d) Git hub
+Answer B
+
+5) What is the common Collaboration method of pushing the changes to Master branch ?
+a) Push Request b) allow request c) Pull request d) raise request 
+Answer: C 
+
+------------------------------------------------------------------------------------------------------
+
+Jenkins ADMIN related Questions ( CI Tool)
+
+1) Only Admin can see this Button in the main Jenkins UI 
+a) JOB b) Build Number c) Manage Jenkins d) View name 
+Answer: C
+
+2) Jenkins Master does't use this Protocol to connect to agent/slave ?
+a) JNLP b) SSH C) Headless start d) SCP 
+Answer: D
+
+3) How to manage the build throttle and what to be SET?
+a) count status b) job status c) executor count d) NO builds 
+Answer: C
+
+4) Which is the following is not a Jenkins Project type
+a) custom style b) Maven Build type c) Pipeline type d) free style
+Answer: A
+
+5) In a Jenkins self lockout admin situation > what is the first thing to do?
+a) restart jenkins b) backup jenkins c) disable security in config and restart d) disable views in config and restart .
+Answer: C
+
+--------------------------------------------------------------------------------------------------------------------
+
+Artifactory : Repository Management Tool
+
+1) Artifactory is what kind of tool ?
+a) configuration management tool b) repo management tool c) deployment orchestration tool d) build tool
+Answer: B
+
+2) Artifactory comes with default repos for Maven which of the following is NOT ?
+a) lib-snapshots b) lib-releases c) myrepo-releases d) local-releases
+Answer: C
+
+3) Artifactory can store Docker images ? True or False 
+Answer: True
+
+4) Artifactory performs a what validation on each artifact published 
+a) 	SHA1 hksum b) SHA1 cksum c) SHA1 mksum d) SHA1 lssum
+Answer : B
+
+5) What is an option to get encrypted credentials from Artifactory UI?
+a) line me up b) set me up c) push me up d) cred me up
+Answer : B.
+
+-----------------------------------------------------------------------------------------------------------------
+
+Sonar Code Coverage tool 
+
+1) The rules defined in Sonar were saved and loaded as 
+a) gate profile b) quality profile c) class profile d) public profile 
+Answer : B.
+
+2) what is a way to enforce a quality policy in your organization?
+a) quality gate b) toll gate c) classic gate d) golden gate 
+Answer : A
+
+3) Sonar uses a Default database ?
+a) Derby b) H2 c) both d) Mysql
+Answer : C
+
+4) How to create reports in SonarQube?
+a) mvn sonar:sonar -Dsonar.issuesreport.html.enable=true
+b) mvn sonar:install -Dsonar.issuesreport.html.enable=true
+c) mvn sonar:deploy -Dsonar.issuesreport.html.enable=true
+c) mvn sonar:local -Dsonar.issuesreport.html.enable=true
+
+Answer : A
+
+5) Sonar does't check the following ?
+
+a) Duplicated code
+b) Complex code
+c) Vulnarabilities 
+d) Potential bugs
+
+Answer: C 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Blackduck :
+
+1) what is NVD stands for in Blackduck to
+a) National Volly database
+b) National Vulnarability database
+c) National volatile database
+d) none 
+
+Answer : B
+
+2) Known vulnarabilities have a metadata and Unique number represented as 
+
+a) CQE
+b) CJE
+c) CNE
+d) CVE 
+
+Answer : D
+
+3) Blackduck provide a vulnarability and also remediation steps ? TRUE or FALSE 
+Answer : True.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Synk :
+
+1) Synk has below advantage over Blackduck 
+
+a) Self healing and an Auto PR initiaion
+b) low in cose compare to Blackduck 
+c) integration with CI 
+d) Auto scaling 
+
+Answer: A
+
+2) Synk support below laungage is that true or false : GO lang 
+
+Answer: Ture 
+
+3) below is not a method of Synk implementation 
+
+a) CLI
+b) CI integration 
+c) GITHUB Proj integration 
+d) containerization
+
+Answer: D.
+
+4) Snyk has its own vulnarability database on top of NVD / True or false
+
+Answer: True
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Puppet : Configuration management tool
+
+1) what Lang Puppet RAL is written and used ?
+a) perl b) python c) dsl d) ipl
+
+Answer: C
+
+2) Which of the following is not in a Puppet Architecture 
+
+a) Manifests b) templates c) Modules d) lists 
+
+Answer: D
+
+3) What is Facter in Puppet ?
+
+a) collection of faces b) collection of fineobjects c) collection of facts d) collection of false
+
+Answer: C
+
+4) command to check list of signing certificates from agent to master ?
+
+a) puppet cert list
+b) puppet cert count
+c) puppet cert getme
+d) puppet cert input
+
+Answer: A
+
+5) What is Hiera in Puppet which is ideal for data seperation from code.
+
+a) key-value pair 
+b) system-value pair
+c) name-symlink pair 
+d) key-keyless pair 
+
+Answer : a)
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+ 
+
+
+
+
+
+
+
+
