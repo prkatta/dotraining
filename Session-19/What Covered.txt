@@ -1,0 +1,4 @@
+Total: 4 Hours
+
+1) Shell Scripting
+2) Batch Scripting
