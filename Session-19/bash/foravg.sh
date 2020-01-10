@@ -1,6 +1,6 @@
 #!/bin/bash
 # compute the average weekly temperature
-
+set -x
 for num in 1 2 3 4 5 6 7
 do
    read -p "Enter temp for day $num: " Temp

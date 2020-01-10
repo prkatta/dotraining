@@ -1,0 +1,5 @@
+Arrays are not specifically defined as a type in Batch Script but can be implemented. 
+The following things need to be noted when arrays are implemented in Batch Script.
+
+Each element of the array needs to be defined with the set command.
+The ‘for’ loop would be required to iterate through the values of the array.
