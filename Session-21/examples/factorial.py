@@ -1,4 +1,4 @@
-#!/anaconda3/bin/python
+
 
 def factorial( ):
 	n = int(input("enter an int "))
