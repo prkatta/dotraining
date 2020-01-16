@@ -1,0 +1,18 @@
+This project require below tools to build & run
+
+What You Need
+
+JDK 1.8 or later
+
+Maven 3.2+
+
+
+Run below steps to build the project
+
+mvn clean install
+
+Run below to run the project
+
+java -jar $PROJECT_ROOT/target/spring-boot-0.0.1-SNAPSHOT.jar
+
+App will be started in port 8080.
